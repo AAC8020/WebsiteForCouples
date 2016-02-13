@@ -1,4 +1,7 @@
 # WebsiteForCouples
+##开放源代码许可
+部分CSS和JS文件来自于muicss项目:[muicss](https://github.com/muicss/mui)  
+服务器程序使用了Flask项目的库:[Flask](https://github.com/mitsuhiko/flask)
 ##简介
 一个小型网站，情侣【亦可是基友 可以在上面发表一些文字或是分享图片、音乐，设计为只有两个账户，账户没有存在数据库中，所以可以避免在登陆界面进行SQL注入攻击，但是表单没有进行输入验证，所以不能避免在登陆后的界面中进行的XSS攻击
 ##已知bug：  
