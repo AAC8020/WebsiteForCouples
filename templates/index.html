@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>网站标题</title>
+<meta content="width=device-width,user-scalabel=no" name="viewport"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../static/mui.css" rel="stylesheet" type="text/css" />
+<script src="../static/mui.js"></script>
+<script src="../static/script.js"></script>
+<meta content="width=device-width,user-scalabel=no" name="viewport"> 
+<link href="../static/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="mui-panel" id="head">
+<p style="font-size:36px; color:#FF0004;">欢迎访问！</p>
+<p style="font-size:26px">这是第{{ days }}天</p>
+<a href="/logout" style="text-align:right">退出登录</a>
+</div>
+
+<div class="mui-container">
+<div class="mui-panel layer1">
+<div class="mui-panel layer2">
+<div id="textinput">
+<form name="theform" method="post">
+<textarea name="content" id="content" class="mui-textfield" 
+onfocus="if(value=='输入你的文字_(:3」∠)_') {value=''}" 
+onblur="if(value=='') {value='输入你的文字_(:3」∠)_'}">
+</textarea>
+<input type="submit" class="mui-btn mui-btn--primary mui-btn--raised" value="发表">&nbsp &nbsp
+</form>
+</div>
+
+<div id="fileupload" style="display:none;">
+<form method="post" enctype="multipart/form-data" action="upload">
+支持图像、音乐上传（尚不支持中文名文件）：
+<input type="file" name="user-file" ><br>
+<input type="submit" class="mui-btn mui-btn--primary mui-btn--raised" value="上传">&nbsp &nbsp
+</form>
+</div>
+
+<input type="radio" name="type" id="text" value="文字" checked="checked" onClick="showtext()">文字&nbsp
+<input type="radio" name="type" id="media" value="多媒体" onClick="showmedia()">多媒体
+
+{% for message in get_flashed_messages() %}
+</div>
+<div class="mui--divider-bottom"></div>
+<div class="mui-panel layer3">
+{{ message }}
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+{% for list in data %}
+{% if list.type == 'image' and list.sex == 'male' %}
+	<div class="mui-container">
+    <div class="mui-panel male">
+    <h2>{{ list.time }}</h2><br/>
+    <img src=../{{ list.passage }} width="100%" height="100%">
+    
+    </div>
+    </div>
+{% elif list.type == 'image' and list.sex == 'female' %}
+	<div class="mui-container">
+    <div class="mui-panel female">
+    <h2>{{ list.time }}</h2><br/>
+    <img src=../{{ list.passage }} width="100%" height="100%">
+    
+    </div>
+    </div>
+{% elif list.type == 'audio' and list.sex == 'female' %}
+	<div class="mui-container">
+    <div class="mui-panel female">
+    <h2>{{ list.time }}</h2><br/>
+    <audio src=../{{ list.passage }} controls width="100%" height="100%">
+    
+    </div>
+    </div>
+ {% elif list.type == 'audio' and list.sex == 'male' %}
+	<div class="mui-container">
+    <div class="mui-panel male">
+    <h2>{{ list.time }}</h2><br/>
+    <audio src=../{{ list.passage }} controls width="100%" height="100%">
+    
+    </div>
+    </div>
+
+{% elif list.sex == 'male' %}
+	<div class="mui-container">
+	<div class="mui-panel male">
+	<h2>{{ list.time }}</h2><br/>
+	{{ list.passage.replace('\n','<br> ')|safe }}
+	
+	</div>
+	</div>
+{% else %}
+	<div class="mui-container">
+	<div class="mui-panel female">
+	<h2>{{ list.time }}</h2><br/>
+	{{ list.passage.replace('\n','<br> ')|safe }}
+	</div>
+	</div>
+{% endif %}
+{% endfor %}
+
+</body>
+</html>

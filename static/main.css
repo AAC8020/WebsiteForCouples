@@ -1,0 +1,42 @@
+/* CSS Document */
+body{
+	background-color:#ECECEC;
+	font-family:微软雅黑;
+}
+#head{
+	background-color:#9FBCFF;
+	margin-bottom:20px;
+}
+.layer1{
+	background-color:#9FBCFF;
+}
+.layer2{
+	background-color:#CFD6FF;
+}
+a{
+	font-size:16px;
+	
+}
+#title{
+	max-width:90%;
+	min-width:90%;
+}
+textarea{
+	height:150px;
+	max-width:90%;
+	min-width:90%;
+}
+.male{
+	background-color:#9FBCFF;
+}
+.female{
+	background-color:#F89091;
+}
+.wrap
+{
+	margin:0 auto;
+	width:auto;
+	background-color:#9FBCFF;
+}
+.layer3{
+	background-color:#F3FF7C;
