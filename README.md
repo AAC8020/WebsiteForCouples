@@ -25,8 +25,7 @@
 1.打开server.ini，修改数据库路径、上传文件存储路径、是否调试以及端口号  
 2.打开runserver.py，修改你需要显示的纪念日的日期，以及两位用户的用户名和密码，密码使用了明文，考虑到安全性可以再用md5加密一次  
 3.创建数据库： 
->$ touch DATABASE_NAME  
->$ sqlite3 DATABASE_NAME  
+>$ sqlite3 data.db3  
 >  \>.read init_database.sql  
 >  \>.exit  
 
